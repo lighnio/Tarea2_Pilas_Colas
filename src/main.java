@@ -8,34 +8,34 @@ import java.util.Scanner;
 
 public class main {
 
-    public static void Main(String[] args) {
+    public main(String[] args) {
 
         //Scanner
         Scanner entry = new Scanner(System.in);
         int op;
         //Implementando la Queue
-        Queue queue = new LinkedList<>();
+        Queue<String> queue = new LinkedList<>();
 
         //Rellenar la queue
         queue = addToQueue(queue);
 
-        do {
+        while (true){
 
             printMenu();
             op = entry.nextInt();
-            switch (op) {
+            switch (op){
 
                 case 1:
-                    addToQueue(queue);
+                    queue = addToQueue(queue);
                     break;
 
                 case 2:
 
                     System.out.println("Aviones: ");
 
-                    if (queue.size() < 1) {
+                    if (queue.size() < 1){
                         System.out.println("No hay aviones.");
-                    } else {
+                    }else {
                         System.out.println(queue);
                     }
 
@@ -68,7 +68,10 @@ public class main {
 
             }
 
-        } while (op != 7);
+            if (op == 7){
+                break;
+            }
+        }
 
     }
 
